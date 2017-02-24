@@ -5,7 +5,7 @@
 	<title>task1</title>
 </head>
 <body>
-	<label>请输入北京今天空气质量：<input id="aqi-input" type="text" value="aa"></label>
+	<label>请输入北京今天空气质量：<input id="aqi-input" type="text"></label>
   <button id="button">确认填写</button>
 
   <div>您输入的值是：<span id="aqi-display">尚无录入</span></div>
@@ -16,14 +16,20 @@
  	var button = document.getElementById("button");
  	var aSpan = document.getElementById("aqi-display");
  	var Value = "";
+ 	var re = /[1-9][0-9]+/;
  	 	button.onclick = function () {
  	 		Value = aInput.value;
  		if(!Value){
  			alert("请输入北京今天空气质量");
- 		}
- 		aSpan.innerHTML = Value;
+ 		}else{
+ 			if(re.test(Value)){
+ 			aSpan.innerHTML = Value;
+ 		}else{
+ 			alert("请输入正确的数字！");
+ 		};
+ 		};
  		aInput.value = "";
- 	}
+ 	};
 })();
 
 </script>
